@@ -19,5 +19,6 @@ const styles = {
     color: "white",
     display: "flex",
     textAlign: "center",
+    margin: "0",
   },
 };
