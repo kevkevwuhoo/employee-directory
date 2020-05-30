@@ -16,11 +16,21 @@ function Table({ employees }) {
         {employees.map((employee) => {
           return (
             <tr>
-              <td>{employee.image}</td>
-              <td>{employee.name}</td>
-              <td>{employee.phone}</td>
-              <td>{employee.email}</td>
-              <td>{employee.dob}</td>
+              <td>
+                <img src={employee.image}></img>
+              </td>
+              <td>
+                <span>{employee.name}</span>
+              </td>
+              <td>
+                <span>{employee.phone}</span>
+              </td>
+              <td>
+                <span>{employee.email}</span>
+              </td>
+              <td>
+                <span>{employee.dob}</span>
+              </td>
             </tr>
           );
         })}
