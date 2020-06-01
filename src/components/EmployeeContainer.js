@@ -7,6 +7,7 @@ class EmployeeContainer extends Component {
   state = {
     employees: employees,
     search: "",
+    filtered: [],
   };
 
   componentDidMount = () => {
@@ -18,20 +19,28 @@ class EmployeeContainer extends Component {
     this.setState({
       search: value,
     });
+    this.searchEmployees(this.state.search);
   };
 
-  // searchEmployees = (query) => {
-  //   const filteredEmployees = this.state.employees.filter((employee) =>
-  //     employee.name.includes(query)
-  //   );
-  //   this.setState({ employees: filteredEmployees });
-  // };
+  searchEmployees = (query) => {
+    const filteredEmployees = this.state.employees.filter(
+      (employee) =>
+        employee.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    );
+    this.setState({ filtered: filteredEmployees });
+  };
 
   render() {
     return (
       <main>
         <Search handleInputChange={this.handleInputChange} />
-        <Table employees={this.state.employees} />
+        <Table
+          employees={
+            this.state.filtered.length
+              ? this.state.filtered
+              : this.state.employees
+          }
+        />
       </main>
     );
   }
