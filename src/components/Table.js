@@ -1,4 +1,5 @@
 import React from "react";
+import Employee from "./Employee";
 
 function Table({ employees }) {
   return (
@@ -13,27 +14,16 @@ function Table({ employees }) {
         </tr>
       </thead>
       <tbody>
-        {employees.map((employee) => {
-          return (
-            <tr>
-              <td>
-                <img src={employee.image}></img>
-              </td>
-              <td>
-                <span>{employee.name}</span>
-              </td>
-              <td>
-                <span>{employee.phone}</span>
-              </td>
-              <td>
-                <span>{employee.email}</span>
-              </td>
-              <td>
-                <span>{employee.dob}</span>
-              </td>
-            </tr>
-          );
-        })}
+        {employees.map((employee) => (
+          <Employee
+            key={employee.id}
+            image={employee.image}
+            name={employee.name}
+            phone={employee.phone}
+            email={employee.email}
+            dob={employee.dob}
+          />
+        ))}
       </tbody>
     </table>
   );
