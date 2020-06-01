@@ -4,7 +4,7 @@ function Employee({ image, name, phone, email, dob }) {
   return (
     <tr>
       <td>
-        <img src={image}></img>
+        <img src={image} alt={name}></img>
       </td>
       <td>
         <span>{name}</span>
