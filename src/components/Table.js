@@ -1,7 +1,7 @@
 import React from "react";
 import Employee from "./Employee";
 
-function Table({ employees, handleSortButton }) {
+function Table({ employees, handleSortButton, sort }) {
   return (
     <table className="table table-striped">
       <thead>
@@ -10,7 +10,11 @@ function Table({ employees, handleSortButton }) {
           <th scope="col">
             Name
             <span>
-              <i className="fa fa-caret-down" onClick={handleSortButton}></i>
+              {" "}
+              <i
+                className={sort ? "fa fa-caret-down" : "fa fa-caret-right"}
+                onClick={handleSortButton}
+              ></i>
             </span>
           </th>
           <th scope="col">Phone</th>

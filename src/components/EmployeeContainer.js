@@ -51,6 +51,7 @@ class EmployeeContainer extends Component {
         <Table
           employees={this.searchEmployees(this.state.search)}
           handleSortButton={this.handleSortButton}
+          sort={this.state.sort}
         />
       </main>
     );
