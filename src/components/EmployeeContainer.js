@@ -11,10 +11,7 @@ class EmployeeContainer extends Component {
     sort: false,
   };
 
-  componentDidMount = () => {
-    console.log(this.state.employees);
-  };
-
+  // change search state when character is inputted by user
   handleInputChange = (event) => {
     const { value } = event.target;
     this.setState({
@@ -22,6 +19,7 @@ class EmployeeContainer extends Component {
     });
   };
 
+  // filter employees based on search query
   searchEmployees = (query) => {
     const filteredEmployees = this.state.employees.filter(
       (employee) =>
@@ -30,11 +28,11 @@ class EmployeeContainer extends Component {
     return filteredEmployees;
   };
 
+  // when caret is clicked by user, sort or unsort the employees
   handleSortButton = () => {
     const newEmployees = !this.state.sort
       ? this.state.employees.sort((a, b) => (a.name > b.name ? 1 : -1))
       : this.state.default;
-    console.log(newEmployees);
     this.setState({
       sort: !this.state.sort,
       employees: [...newEmployees],
