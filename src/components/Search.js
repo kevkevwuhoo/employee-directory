@@ -10,16 +10,18 @@ import React from "react";
 // map through employee array to filter cards based on input
 // search bar must lie above the table to send data to it
 
-function Search({ handleInputChange }) {
+function Search({ value, handleInputChange }) {
   return (
     <nav style={styles.searchBar} className="navbar navbar-light bg-light">
       <form className="form-inline">
         <input
+          value={value}
           className="form-control mr-sm-2"
-          onChange={(e) => handleInputChange(e)}
+          onChange={handleInputChange}
           type="search"
           placeholder="Search"
           aria-label="Search"
+          id="search"
         />
       </form>
     </nav>
