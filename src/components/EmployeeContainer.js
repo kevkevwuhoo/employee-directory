@@ -5,7 +5,8 @@ import employees from "../employees";
 
 class EmployeeContainer extends Component {
   state = {
-    employees: employees,
+    default: [...employees],
+    employees: [...employees],
     search: "",
     sort: false,
   };
@@ -30,10 +31,13 @@ class EmployeeContainer extends Component {
   };
 
   handleSortButton = () => {
+    const newEmployees = !this.state.sort
+      ? this.state.employees.sort((a, b) => (a.name > b.name ? 1 : -1))
+      : this.state.default;
+    console.log(newEmployees);
     this.setState({
-      employees: this.state.employees.sort((a, b) =>
-        a.name > b.name ? 1 : -1
-      ),
+      sort: !this.state.sort,
+      employees: [...newEmployees],
     });
   };
 
