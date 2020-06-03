@@ -5,7 +5,7 @@ const employees = [
     image: faker.image.avatar(),
     name: faker.name.findName(),
     phone: faker.phone.phoneNumberFormat(),
-    email: "fake@testo.com",
+    email: faker.internet.email(),
     dob: "09/23/93",
   },
   {
