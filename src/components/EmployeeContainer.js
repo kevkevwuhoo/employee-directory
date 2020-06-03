@@ -7,6 +7,7 @@ class EmployeeContainer extends Component {
   state = {
     employees: employees,
     search: "",
+    sort: false,
   };
 
   componentDidMount = () => {
@@ -28,6 +29,14 @@ class EmployeeContainer extends Component {
     return filteredEmployees;
   };
 
+  handleSortButton = () => {
+    this.setState({
+      employees: this.state.employees.sort((a, b) =>
+        a.name > b.name ? 1 : -1
+      ),
+    });
+  };
+
   render() {
     return (
       <main>
@@ -35,7 +44,10 @@ class EmployeeContainer extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        <Table employees={this.searchEmployees(this.state.search)} />
+        <Table
+          employees={this.searchEmployees(this.state.search)}
+          handleSortButton={this.handleSortButton}
+        />
       </main>
     );
   }
