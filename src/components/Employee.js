@@ -1,6 +1,7 @@
 import React from "react";
 
 function Employee({ image, name, phone, email, dob }) {
+  const emailLink = `mailto:${email}`;
   return (
     <tr>
       <td>
@@ -13,7 +14,7 @@ function Employee({ image, name, phone, email, dob }) {
         <span>{phone}</span>
       </td>
       <td>
-        <span>{email}</span>
+        <a href={emailLink}>{email}</a>
       </td>
       <td>
         <span>{dob}</span>
